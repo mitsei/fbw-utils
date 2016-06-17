@@ -2,7 +2,7 @@
 'use strict';
 
 var QBankSignature = require('../signingUtil/QBankSignature');
-var fetchWithHandling = require('./fetchWithHandling');
+var _fetchWithHandling = require('./_fetchWithHandling');
 
 function initializer(credentials) {
   return function qbankFetch(params, successCallback, errorCallback) {
