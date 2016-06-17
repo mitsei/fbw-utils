@@ -14,9 +14,9 @@ function initializer(credentials) {
     }
 
     if (url.indexOf('?') >= 0) {
-      url = url + '&proxyname=' + credentials.ProxyKey;
+      url = url + '&proxyname=' + credentials['handcar'].ProxyKey;
     } else {
-      url = url + '?proxyname=' + credentials.ProxyKey;
+      url = url + '?proxyname=' + credentials['handcar'].ProxyKey;
     }
 
     _fetchWithHandling(url, successCallback, errorCallback);

@@ -20,9 +20,9 @@ function initializer(credentials) {
           url = decodeURIComponent(url);
           headerPath = decodeURIComponent(headerPath);
       }
-      headers.append('x-api-key', credentials.AccessKeyId);
-      headers.append('x-api-proxy', params.proxy ? params.proxy : credentials.Proxy);
-      headers.append('host', credentials.Host);
+      headers.append('x-api-key', credentials['qbank'].AccessKeyId);
+      headers.append('x-api-proxy', params.proxy ? params.proxy : credentials['qbank'].Proxy);
+      headers.append('host', credentials['qbank'].Host);
       headers.append('request-line', headerPath);
       headers.append('accept', 'application/json');
       headers.append('date', now.toUTCString());
@@ -36,7 +36,7 @@ function initializer(credentials) {
             'host': headers.get('host'),
             'x-api-proxy': headers.get('x-api-proxy')
           },
-          credentials
+          credentials: credentials['qbank']
       };
       qbank.setParams(options);
 
