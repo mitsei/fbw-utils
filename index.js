@@ -1,9 +1,14 @@
 
-require('./dateUtil/CheckMissionStatus');
-require('./dateUtil/ConvertDateToDictionary');
 
-require('./fetch/fetchWithHandling');
-require('./fetch/handcarFetch');
-require('./fetch/qbankFetch');
 
-require('./signingUtil/QBankSignature');
+
+module.exports = function(credentials) {
+  return {
+    handcarFetch: require('./fetch/handcarFetch')(credentials),
+    qbankFetch: require('./fetch/qbankFetch')(credentials),
+    CheckMissionStatus: require('./dateUtil/CheckMissionStatus'),
+    ConvertDateToDictionary: require('./dateUtil/ConvertDateToDictionary'),
+    QBankSignature: require('./signingUtil/QBankSignature')
+  }
+
+}

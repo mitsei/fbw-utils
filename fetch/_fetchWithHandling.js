@@ -1,7 +1,7 @@
 'use strict';
 
 
-module.exports = function(url, fetchInit) {
+function _fetchWithHandling(url, fetchInit) {
   fetch(url, fetchInit)
   .then(function (response) {
       if (response.ok) {
@@ -23,5 +23,6 @@ module.exports = function(url, fetchInit) {
       console.log('Error fetching: ' + url);
       console.log('Error with fetch! ' + error.message);
   });
-
 }
+
+module.exports = _fetchWithHandling;
