@@ -56,7 +56,7 @@ function initializer(credentials) {
         }
       }
 
-      _fetchWithHandling(url, successCallback, errorCallback);
+      _fetchWithHandling(url, fetchInit, successCallback, errorCallback);
   }
 }
 

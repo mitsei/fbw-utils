@@ -1,7 +1,7 @@
 'use strict';
 
 
-function _fetchWithHandling(url, fetchInit) {
+function _fetchWithHandling(url, fetchInit, successCallback, errorCallback) {
   fetch(url, fetchInit)
   .then(function (response) {
       if (response.ok) {

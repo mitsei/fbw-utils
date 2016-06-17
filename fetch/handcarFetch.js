@@ -19,7 +19,7 @@ function initializer(credentials) {
       url = url + '?proxyname=' + credentials['handcar'].ProxyKey;
     }
 
-    _fetchWithHandling(url, successCallback, errorCallback);
+    _fetchWithHandling(url, {}, successCallback, errorCallback);
   }
 }
 
