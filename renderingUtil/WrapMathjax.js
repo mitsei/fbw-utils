@@ -15,4 +15,4 @@ function initializer(credentials) {
   };
 }
 
-module.exports = WrapMathjax;
+module.exports = initializer;
