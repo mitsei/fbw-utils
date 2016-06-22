@@ -8,7 +8,7 @@ module.exports = function(credentials) {
     qbankFetch: require('./fetch/qbankFetch')(credentials),
     CheckMissionStatus: require('./dateUtil/CheckMissionStatus'),
     ConvertDateToDictionary: require('./dateUtil/ConvertDateToDictionary'),
-    QBankSignature: require('./signingUtil/QBankSignature')
-  }
-
+    QBankSignature: require('./signingUtil/QBankSignature'),
+    WrapMathjax: require('./renderingUtil/WrapMathjax')(credentials)
+  };
 }
