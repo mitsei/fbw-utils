@@ -10,7 +10,10 @@ function initializer(credentials) {
         <body>
           ${markup}
         </body>
-        <script>window.location.hash = 1;document.title = document.height;</script>
+        <script>
+            window.location.hash = 1;
+            document.title = document.getElementById("content").offsetHeight;
+        </script>
       </html>`;
   };
 }
