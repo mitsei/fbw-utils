@@ -12,7 +12,7 @@ function _fetchWithHandling(url, fetchInit, successCallback, errorCallback) {
               console.log('Not a 200 response: ' + url);
               console.log('Error returned: ' + responseText);
             try {
-              errorCallback();
+              errorCallback(response);
             } catch (e) {
 
             }
