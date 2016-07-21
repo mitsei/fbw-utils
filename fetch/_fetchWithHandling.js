@@ -5,8 +5,11 @@ function _fetchWithHandling(url, fetchInit, successCallback, errorCallback) {
   fetch(url, fetchInit)
   .then(function (response) {
       if (response.ok) {
+        try{
           response.json().then( (responseData) => successCallback(responseData));
-
+        } catch (e) {
+          // some API calls return an empty response, so don't try to JSON them
+        }
       } else {
           response.text().then(function (responseText) {
               console.log('Not a 200 response: ' + url);
