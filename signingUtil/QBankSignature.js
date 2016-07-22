@@ -55,7 +55,7 @@ x-api-proxy: ${this.headers['x-api-proxy']}`;
   setParams(options) {
     this.checkHeaderDate(options);
     this.method = options.method.toUpperCase();
-    this.pathName = decodeURI(options.path);
+    this.pathName = decodeURI(options.path).replace(/ /g, '%20');  // escape spaces, so server-side signing works
     this.headers = options.headers;
     this.credentials = options.credentials;
   }
