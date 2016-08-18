@@ -7,7 +7,7 @@ function initializer(credentials) {
         <head>
           <script src="${credentials.MathJaxURL}"></script>
         </head>
-        <body>
+        <body style="font-size: 16px; line-height: 1.4;">
           ${markup}
         </body>
         <script>

@@ -5,7 +5,7 @@ var QBankSignature = require('../signingUtil/QBankSignature');
 var _fetchWithHandling = require('./_fetchWithHandling');
 
 function initializer(credentials) {
-  return function qbankFetch(params, successCallback, errorCallback) {
+  return function qbankFetch(params) {
 
       let URL = 'https://' + credentials['qbank'].Host + '/api/v2/';
 
@@ -56,7 +56,7 @@ function initializer(credentials) {
         }
       }
 
-      _fetchWithHandling(url, fetchInit, successCallback, errorCallback);
+      return _fetchWithHandling(url, fetchInit);
   }
 }
 

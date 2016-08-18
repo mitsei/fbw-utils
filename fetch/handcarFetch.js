@@ -4,7 +4,7 @@
 var _fetchWithHandling = require('./_fetchWithHandling');
 
 function initializer(credentials) {
-  return function handcarFetch(params, successCallback, errorCallback) {
+  return function handcarFetch(params) {
       // wrapper around global fetch to include signing
     let URL = 'https://' + credentials['handcar'].Host + '/handcar/services';
     var url = URL + params.path;
@@ -19,7 +19,7 @@ function initializer(credentials) {
       url = url + '?proxyname=' + credentials['handcar'].ProxyKey;
     }
 
-    _fetchWithHandling(url, {}, successCallback, errorCallback);
+    return _fetchWithHandling(url, {});
   }
 }
 
