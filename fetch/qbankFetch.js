@@ -17,8 +17,13 @@ function initializer(credentials) {
           headerPath = url.split('mit.edu')[1],
           options, fetchInit;
       if (url.indexOf('%3A') >= 0) {
-          url = decodeURIComponent(url);
-          headerPath = decodeURIComponent(headerPath);
+        // let's only decode the stuff we care about ... otherwise magic question IDs
+        // get messed up -- this shouldn't be necessary in the future with Jeff's change
+        // to abstract the magic question IDs out.
+          url = url.replace(/%3A/g, ':').replace(/%40/g, '@');
+          headerPath = headerPath.replace(/%3A/g, ':').replace(/%40/g, '@');
+        //url = decodeURIComponent(url);
+        //headerPath = decodeURIComponent(headerPath);
       }
       headers.append('x-api-key', credentials['qbank'].AccessKeyId);
       headers.append('x-api-proxy', params.proxy ? params.proxy : credentials['qbank'].Proxy);
@@ -38,9 +43,7 @@ function initializer(credentials) {
           },
           credentials: credentials['qbank']
       };
-      qbank.setParams(options);
-
-      headers.append('authorization', qbank.getAuthorizationString());
+      headers.append('authorization', qbank.getAuthorizationString(options));
 
       fetchInit = {
           headers: headers,

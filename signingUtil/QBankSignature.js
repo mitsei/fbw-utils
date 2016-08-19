@@ -46,18 +46,16 @@ x-api-proxy: ${this.headers['x-api-proxy']}`;
   getSignature() {
     return hmac(this.credentials.SecretKey, this.getStringToSign());
   }
-  getAuthorizationString() {
-    return `Signature headers="${this.getSignedHeaders()}",keyId="${this.credentials.AccessKeyId}",algorithm="${ALGORITHM}",signature="${this.getSignature()}"`;
-  }
-  getSignedHeaders() {
-    return REQUIRED_HEADERS.join(' ');
-  }
-  setParams(options) {
+  getAuthorizationString(options) {
     this.checkHeaderDate(options);
     this.method = options.method.toUpperCase();
     this.pathName = decodeURI(options.path).replace(/ /g, '%20');  // escape spaces, so server-side signing works
     this.headers = options.headers;
     this.credentials = options.credentials;
+    return `Signature headers="${this.getSignedHeaders()}",keyId="${this.credentials.AccessKeyId}",algorithm="${ALGORITHM}",signature="${this.getSignature()}"`;
+  }
+  getSignedHeaders() {
+    return REQUIRED_HEADERS.join(' ');
   }
 }
 
