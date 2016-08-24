@@ -7,14 +7,14 @@ var _fetchWithHandling = require('./_fetchWithHandling');
 function initializer(credentials) {
   return function qbankFetch(params) {
 
-      let URL = 'https://' + credentials['qbank'].Host + '/api/v2/';
+      let URL = credentials['qbank'].Host.indexOf('mit.edu') >= 0 ? `https://${credentials['qbank'].Host}/api/v2/` : `http://${credentials['qbank'].Host}/api/v2/`;
 
       // wrapper around global fetch to include signing
       var qbank = new QBankSignature(),
           now = new Date(),
           headers = new Headers(),
           url = URL + params.path,
-          headerPath = url.split('mit.edu')[1],
+          headerPath = url.indexOf('mit.edu') >= 0 ? url.split('mit.edu')[1] : url.split(':8003')[1],
           options, fetchInit;
       if (url.indexOf('%3A') >= 0) {
         // let's only decode the stuff we care about ... otherwise magic question IDs
