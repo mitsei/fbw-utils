@@ -9,6 +9,8 @@ module.exports = function(credentials) {
     CheckMissionStatus: require('./dateUtil/CheckMissionStatus'),
     ConvertDateToDictionary: require('./dateUtil/ConvertDateToDictionary'),
     QBankSignature: require('./signingUtil/QBankSignature'),
-    WrapMathjax: require('./renderingUtil/WrapMathjax')(credentials)
+    WrapMathjax: require('./renderingUtil/WrapMathjax')(credentials),
+    privateBankAlias: require('./aliasUtil/PrivateBankAlias'),
+    sharedBankAlias: require('./aliasUtil/SharedBankAlias')
   };
 }
