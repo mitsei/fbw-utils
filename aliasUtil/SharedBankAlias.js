@@ -9,7 +9,7 @@ var sharedBankAlias = function (termBankId) {
   } else {
     termBankId = encodeURIComponent(termBankId)
   }
-  return `shared-bank%3A${termBankId}%40ODL.MIT.EDU`
+  return `assessment.Bank%3A${termBankId}%40ODL.MIT.EDU`
 };
 
 module.exports = sharedBankAlias;
