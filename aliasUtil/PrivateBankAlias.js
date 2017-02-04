@@ -7,7 +7,7 @@ var privateBankAlias = function (termBankId, username) {
   if (termBankId.indexOf('@') >= 0) {
     termBankId = encodeURIComponent(termBankId)
   }
-  return `private-bank%3A${termBankId.match(/%3A(.*)%40/)[1]}-${username.replace('@', '.')}%40ODL.MIT.EDU`
+  return `private-bank%3A${termBankId.match(/%3A(.*)%40/)[1]}-${username.replace('@', '.').replace(' ', '-')}%40ODL.MIT.EDU`
 };
 
 module.exports = privateBankAlias;
