@@ -8,7 +8,7 @@
   "description": "FbW utils",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --colors $(find . ! -path './node_modules/*' -name '*.spec.js')"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
     "Fly-by-Wire"
   ],
   "author": "Fly-by-Wire team",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "should": "^11.2.0"
+  }
 }
